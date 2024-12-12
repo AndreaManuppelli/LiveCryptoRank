@@ -1,7 +1,14 @@
 <div class="p-2 border border-primary rounded text-white">
-    <div class="flex items-center flex-col gap-2">
+    <div class="flex items-center flex-col gap-2 py-2">
         <h1 class="font-bold">{{coin.name.toUpperCase()}}</h1>
-        <img [src]="coin.image" alt="coin image" class="w-12 h-12" />
-        <p>{{coin.symbol}}</p>
+        <img [src]="coin.image" alt="coin image" class="w-24 h-24" />
+        
+        <p>{{coin.symbol.toUpperCase()}}/USD: {{coin.current_price}}</p>
+        <div class="flex flex-col gap-1 items-center">
+            <p>Market Cap:</p>
+            <p class="font-bold text-sm">{{coin.market_cap | currency}}</p>
+
+        </div>
+        <p>24h Change: {{coin.price_change_percentage_24h}}</p>
     </div>
 </div>
