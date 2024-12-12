@@ -1,21 +1,22 @@
 
 <div class="p-2 border border-primary bg-gradient-to-br from-secondary to-primary-700/50 rounded text-white">
     <div class="flex items-center flex-col gap-2 py-2">
-        <h1 class="font-bold">{{coin.name.toUpperCase()}}</h1>
+        <h1 class="font-bold text-sm p-2 bg-gradient-to-tr from-secondary to-primary/50 px-4 shadow-2xl rounded">{{coin.name.toUpperCase()}}</h1>
         <img [src]="coin.image" alt="coin image" class="w-24 h-24" />
         
-        <p>{{coin.symbol.toUpperCase()}}/USD: {{coin.current_price}}</p>
+        <p>{{coin.symbol.toUpperCase()}}/USD: {{coin.current_price | currency}}</p>
         <div class="flex flex-col gap-1 items-center">
             <p>Market Cap:</p>
             <p class="font-bold text-sm">{{coin.market_cap| currency : 'USD':'symbol-narrow':'1.0-0'}}</p>
 
         </div>
-        <div class="flex justify-center gap-2">
+        <div class="flex justify-center gap-2 rounded shadow border-b border-primary p-2 bg-black">
+            
             <p>24h Change: {{coin.price_change_percentage_24h.toFixed(2)}}%</p>
             @if(coin.price_change_percentage_24h > 0){
-                <lucide-angular name="trending-up" class="h-6 w-6"></lucide-angular>
+                <lucide-angular color="green" name="trending-up" class="h-6 w-6"></lucide-angular>
             }@else if (coin.price_change_percentage_24h < 0) {
-                <lucide-angular class="bgb-red-400" name="trending-down" class="h-6 w-6"></lucide-angular>
+                <lucide-angular color="red" name="trending-down" class="h-6 w-6"></lucide-angular>
             }@else {
                 <p class="bg-yellow-300">=</p>
             }
