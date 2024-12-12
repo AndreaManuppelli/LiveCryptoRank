@@ -1,7 +1,7 @@
 
 <div class="p-2 border border-primary bg-gradient-to-br from-secondary to-primary-700/50 rounded text-white">
     <div class="flex items-center flex-col gap-2 py-2">
-        <h1 class="font-bold text-sm p-2 bg-gradient-to-tr from-secondary to-primary/50 px-4 shadow-2xl rounded">{{coin.name.toUpperCase()}}</h1>
+        <h1 class="font-bold text-sm p-2 bg-gradient-to-tr from-secondary to-primary/50 shadow-2xl rounded">{{coin.name.toUpperCase()}}</h1>
         <img [src]="coin.image" alt="coin image" class="w-24 h-24" />
         
         <p>{{coin.symbol.toUpperCase()}}/USD: {{coin.current_price | currency}}</p>
