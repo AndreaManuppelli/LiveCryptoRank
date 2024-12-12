@@ -5,4 +5,10 @@
         </div>
         Crypto Rank cryptocurrencies</h1>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-2">
+        <div *ngFor="let coin of coins" class="p-2">
+            <app-coin-card  [coin]="coin"></app-coin-card>
+        </div>
+    </div>
 </div>
+

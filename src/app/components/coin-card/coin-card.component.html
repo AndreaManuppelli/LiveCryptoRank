@@ -1,1 +1,7 @@
-<p>coin-card works!</p>
+<div class="p-2 border border-primary rounded text-white">
+    <div class="flex items-center flex-col gap-2">
+        <h1 class="font-bold">{{coin.name.toUpperCase()}}</h1>
+        <img [src]="coin.image" alt="coin image" class="w-12 h-12" />
+        <p>{{coin.symbol}}</p>
+    </div>
+</div>

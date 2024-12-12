@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-coin-card',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './coin-card.component.scss'
 })
 export class CoinCardComponent {
-
+  @Input() coin = {
+    id: '',
+    name: '',
+    symbol: '',
+    image: '',
+    current_price: '',
+    market_cap: '',
+    price_change_percentage_24h: 0
+  };
 }

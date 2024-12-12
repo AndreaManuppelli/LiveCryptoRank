@@ -12,7 +12,7 @@ export class CryptoService {
 
   constructor(private http: HttpClient) { }
 
-  getTopCoins(limit: number = 50): Observable<any[]> {
+  getTopCoins(limit: number = 52): Observable<any[]> {
     const params = {
       vs_currency: 'usd',
       order: 'market_cap_desc',
@@ -28,7 +28,8 @@ export class CryptoService {
         symbol: coin.symbol,
         image: coin.image,
         current_price: coin.current_price,
-        market_cap: coin.market_cap
+        market_cap: coin.market_cap,
+        price_change_percentage_24h: coin.price_change_percentage_24h
       })))
     );
   }
