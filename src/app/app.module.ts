@@ -9,13 +9,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoinCardComponent } from './components/coin-card/coin-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CoinCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
