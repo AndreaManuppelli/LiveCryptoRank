@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CryptoService {
-
   private apiUrl = 'https://api.coingecko.com/api/v3/coins/markets';
 
   constructor(private http: HttpClient) { }
 
   getTopCoins(limit: number = 52): Observable<any[]> {
-    const params = {
-      vs_currency: 'usd',
-      order: 'market_cap_desc',
-      per_page: limit.toString(),
-      page: '1',
-      sparkline: 'false'
-    };
+    let params = new HttpParams()
+      .set('vs_currency', 'usd')
+      .set('order', 'market_cap_desc')
+      .set('per_page', limit.toString())
+      .set('page', '1')
+      .set('sparkline', 'false');
+      
+    if (environment.apiKey) {
+      params = params.set('x_cg_demo_api_key', environment.apiKey);
+    }
 
     return this.http.get<any[]>(this.apiUrl, { params }).pipe(
       map(coins => coins.map(coin => ({
