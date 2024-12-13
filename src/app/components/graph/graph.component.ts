@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -15,6 +15,9 @@ interface ChartOptions {
   xaxis: any;
   yaxis: any;
   title: any;
+  grid: any;
+  colors: any;
+  fill: any;
 }
 
 @Component({
@@ -23,9 +26,11 @@ interface ChartOptions {
   styleUrl: './graph.component.scss'
 })
 export class GraphComponent implements OnInit {
+  @Input() data: any[] = [];
   @ViewChild("chart") chart: ChartOptions | undefined;
   chartOptions: Partial<ChartOptions> = {};
-  constructor() { 
+  constructor() {
+    
     this.chartOptions = {
       series: [
         {
@@ -276,11 +281,15 @@ export class GraphComponent implements OnInit {
       ],
       chart: {
         type: "candlestick",
-        height: 350
+        height: 500
+      },
+      fill: {
+        colors: ["white", "white", "white", "white"]
       },
       title: {
         text: "CandleStick Chart",
-        align: "left"
+        align: "left",
+        color: "white"
       },
       xaxis: {
         type: "datetime"
@@ -289,29 +298,15 @@ export class GraphComponent implements OnInit {
         tooltip: {
           enabled: true
         }
-      }
+      },
+      colors: ["white", "white", "white", "white"],
     };
    }
 
   
 
   ngOnInit(): void {
-    var options = {
-      chart: {
-        type: 'line'
-      },
-      series: [{
-        name: 'sales',
-        data: [30,40,35,50,49,60,70,91,125]
-      }],
-      xaxis: {
-        categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-      }
-    }
     
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    
-    chart.render()
   }
 
   public generateDayWiseTimeSeries(baseval: number, count: number, yrange: { max: number; min: number; }) {
