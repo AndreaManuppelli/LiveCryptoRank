@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoinCardComponent } from './components/coin-card/coin-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GraphComponent } from './components/graph/graph.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LucideAngularModule.pick(icons)
+    LucideAngularModule.pick(icons),
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
