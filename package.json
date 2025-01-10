@@ -20,7 +20,6 @@
     "@angular/router": "^18.2.0",
     "apexcharts": "^4.2.0",
     "lucide-angular": "^0.468.0",
-    "ng-apexcharts": "^1.15.0",
     "rxjs": "~7.8.0",
     "tailwindcss-palette-generator": "^0.10.0",
     "tslib": "^2.3.0",
