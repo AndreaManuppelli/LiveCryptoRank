@@ -21,9 +21,21 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "repo": "https://github.com/andreamanuppelli/LiveCryptoRank.git",
+            "branch": "gh-pages",
+            "baseHref": "https://andreamanuppelli.github.io/LiveCryptoRank/",
+            "dir": "dist/live-crypto-rank/browser/",
+            "deployUrl": "https://andreamanuppelli.github.io/LiveCryptoRank/"
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "deployUrl": "https://andreamanuppelli.github.io/LiveCryptoRank/",
+            "baseHref": "https://andreamanuppelli.github.io/LiveCryptoRank/",
             "outputPath": "dist/live-crypto-rank",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -37,6 +49,9 @@
                 "glob": "**/*",
                 "input": "public"
               }
+            ],
+            "externalDependencies": [
+              "img/*"
             ],
             "styles": [
               "src/styles.scss"
@@ -85,10 +100,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -97,16 +109,9 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
-            ]
+            "styles": ["src/styles.scss"],
+            "scripts": []
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
