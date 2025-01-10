@@ -9,8 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoinCardComponent } from './components/coin-card/coin-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { GraphComponent } from './components/graph/graph.component';
-import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 @NgModule({
   declarations: [
@@ -18,14 +17,13 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     HomeComponent,
     CoinCardComponent,
     NavbarComponent,
-    GraphComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     LucideAngularModule.pick(icons),
-    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
